@@ -144,4 +144,3 @@ if __name__ == "__main__":
 
     # Đảm bảo thư mục tồn tại trước khi chạy
     os.makedirs("/home/snowfox/Documents/kafka/output", exist_ok=True) 
-    os.makedirs("/home/snowfox/Documents/kafka/kafka_stream_test_out/chk", exist_ok=True)
