@@ -21,7 +21,7 @@ if __name__ == "__main__":
     message = None
     
     massage_total = []
-    for i in range(0,200):
+    for i in range(0,50000):
         message_fields_value_list = []
         message_fields_value_list.append(str(data_predict.iloc[i, 0]))
         message_fields_value_list.append(str(data_predict.iloc[i, 1]))

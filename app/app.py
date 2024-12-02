@@ -20,6 +20,19 @@ def doiso(df):
 # Gọi hàm 'doiso' để chuyển đổi dữ liệu trong 'data'
 doiso(data)
 
+# Thêm hàm chuyển đổi thời gian
+def format_time(time_float):
+    try:
+        # Chuyển đổi sang số nguyên để loại bỏ phần thập phân
+        time_int = int(float(time_float))
+        # Lấy giờ và phút
+        hours = time_int // 100
+        minutes = time_int % 100
+        # Định dạng thành chuỗi HH:MM
+        return f"{hours:02d}:{minutes:02d}"
+    except:
+        return time_float
+
 # Tạo cửa sổ chính của ứng dụng Tkinter
 window = Tk()
 window.title("App")  # Đặt tiêu đề cho cửa sổ là "App"
@@ -86,7 +99,7 @@ def clock():
             elif j == 2:
                 l = Label(text=str(data.iloc[i, 7]), relief=RIDGE, bg=color[i % 2], fg=color_f[i % 2], pady=15, padx=50, font=10)
             elif j == 3:
-                l = Label(text=str(data.iloc[i, 9]), relief=RIDGE, bg=color[i % 2], fg=color_f[i % 2], pady=15, padx=50, font=10)
+                l = Label(text=format_time(data.iloc[i, 9]), relief=RIDGE, bg=color[i % 2], fg=color_f[i % 2], pady=15, padx=50, font=10)
             elif j == 4:
                 l = Label(text=str(data.iloc[i, 11]), relief=RIDGE, bg=color[i % 2], fg=color_f[i % 2], pady=15, padx=50, font=10)
             l.grid(row=i+2, column=j, sticky=NSEW)  # Đặt vị trí của mỗi nhãn dữ liệu trong lưới

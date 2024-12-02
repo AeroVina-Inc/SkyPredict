@@ -156,7 +156,9 @@ if __name__ == "__main__":
     # Khi train model, có thể chia nhỏ dữ liệu
     train_batches = Train.randomSplit([0.2, 0.2, 0.2, 0.2, 0.2])
     final_model = None
-
+####vì cấu hình máy của team không đủ lớn để train toàn bộ dataset, ở đây chỉ train 20% dataset,
+# chia batch chỉ là giả lập, 
+# Trong thực tế có thể cần logic để merge các model######## 
     for i, batch in enumerate(train_batches):
         logger.info(f"Training batch {i+1}/5")
         if i == 0:
@@ -165,8 +167,8 @@ if __name__ == "__main__":
         else:
             # Cập nhật model với batch mới
             model = pipeline.fit(batch)
-            final_model = model  # Trong thực tế có thể cần logic để merge các model
-
+            final_model = model 
+###############################################################################
     # Giải phóng bộ nhớ
     Train.unpersist()
 
